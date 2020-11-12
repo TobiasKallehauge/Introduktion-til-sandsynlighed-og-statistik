@@ -1,0 +1,15 @@
+lectures/.spyproject/
+*.pyc
+.DS_Store
+*checkpoint.ipynb
+*.blg
+*.bbl
+*.log
+*.run.xml
+*.synctex.gz
+*.out
+*.aux
+*.bcf
+*.nav
+*.snm
+*.toc
