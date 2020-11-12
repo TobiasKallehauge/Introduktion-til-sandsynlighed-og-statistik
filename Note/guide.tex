@@ -1,0 +1,39 @@
+\documentclass{article}
+
+\input{setup/preample.tex}
+
+
+\title{Introduktion til Sandsynlighed og Statistik \\
+til modellering og simulering  \\
+\large Datalogi og Software 1. semester}
+
+
+\date{Aalborg Universitet, \today}
+\author{Tobias Kallehauge}
+
+
+\begin{document}
+\maketitle
+\newpage
+Denne note omhandler sandsynlighed, statistik og hvordan disse kan bruges i praksis specielt i sammenhæng med simuleringer, hvor det ofte er nødvendigt at udtrække tal fra bestemte sandsynlighedsfordelinger. Der vil primært fokuseres på den matematiske forståelse, men til sidst i noten gives et par eksempler på hvordan teorien kan bruges i et C-program. Formålet med noten er at give den \emph{nødvendige} teori til software- og datalogiprojekter på  1 semester, og teorien gennemgås derfor relativt overfladisk med kun få eksempler. Den primære kilde bag noten er \cite{olofsson2012}, som er gratis tilgængelig på \href{aub.aau.dk}{aub.aau.dk}. Heri findes også beviser for resultaterne, der er udeladt i noten. Forslag til ændringer, stavefejl mm. kan sendes til \href{mailto:tkal@es.aau.dk}{tkal@es.aau.dk}. 
+\section{Introduktion til sandsynlighed}
+\input{sections/sandsynlighed.tex}
+
+\section{Fordelinger og fordelingsfunktioner}
+\input{sections/fordelinger.tex}
+
+\section{Forventet værdi, varians og standard afvigelse}
+
+\section{Specielle fordelinger og modellering}
+
+\section{Punktprocesser}
+\input{sections/punktprocesser.tex}
+
+\section{Generation af tilfældige tal i C}
+\input{sections/punktprocesser.tex}
+
+
+
+\printbibliography[heading=bibintoc]
+\label{bib:mybiblio}
+\end{document}

@@ -1,0 +1,105 @@
+
+\usepackage[utf8]{inputenc}
+
+
+\usepackage{tikz}
+\usepackage[short,nodayofweek,level,12hr]{datetime} 
+
+
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[
+%  disable, %turn off todonotes
+ colorinlistoftodos, %enable a coloured square in the list of todos
+ textwidth=\marginparwidth, %set the width of the todonotes
+ textsize=scriptsize, %size of the text in the todonotes
+ ]{todonotes}
+
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+\setlength\parindent{0in}
+
+\usepackage[english]{babel}
+\usepackage{datetime}
+\usepackage{graphicx}
+\definecolor{suchblue}{RGB}{150, 255, 150}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{mathtools}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{lemma}[section]{Lemma}
+\newtheorem*{remark}{Remark}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+
+
+\usepackage{algorithm}% http://ctan.org/pkg/algorithms
+\usepackage{algorithmic}% http://ctan.org/pkg/algorithms
+\newcommand{\pluseq}{\mathrel{+}=}
+\DeclareMathOperator{\Var}{Var}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{tipa}
+\usepackage{pgfplots}
+\pgfplotsset{compat = 1.16}
+\usepackage{footmisc}
+\usepackage{listings}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+
+\usepackage{array}
+\usepackage{lmodern,babel,adjustbox,booktabs,multirow}
+\usepackage[normalem]{ulem}
+
+
+\renewcommand{\thefootnote}{[\arabic{footnote}]}
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand{\mbs}[1]{\boldsymbol{#1}}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mE}{\mathbb{E}}
+\newcommand{\mC}{\mathbb{C}}
+\newcommand{\mZ}{\mathbb{Z}}
+\newcommand{\mN}{\mathbb{N}}
+\newcommand{\Tr}[1]{\Text{Tr}{\left(#1}\right)}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand*{\cond}{\hspace*{1pt} |\hspace*{1pt}}
+
+\newcommand{\tobi}[1]{\todo[color=suchblue!40,author=Tobias]{#1}}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\Cov}{Cov}
+\DeclareMathOperator*{\logit}{logit}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{lightgray},   
+    basicstyle={\ttfamily\footnotesize}
+}
+\lstset{style=mystyle,breaklines=true}
+
+\newcommand\NoIndent[1]{%
+  \par\vbox{\parbox[t]{\linewidth}{#1}}%
+}
+
+
+% define enviroments
+\theoremstyle{definition}
+\newtheorem{example}{Eksempel}[section]
+
+
+\usepackage[backend=bibtex,
+  bibencoding=utf8,
+  sorting = nty, 
+  ]{biblatex}
+
+
+
+\addbibresource{mybib.bib}
+\DeclareNameAlias{sortname}{last-first}
+\DeclareNameAlias{default}{last-first}
+\DefineBibliographyStrings{english}{%
+   bibliography = {Bibliografi},
+}	
+\renewcommand*{\bibfont}{\small}

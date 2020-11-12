@@ -1,0 +1,12 @@
+\emph{Sandsynlighed} er et begreb der (mis)bruges i mange sammenhænge indenfor videnskab, økonomi, politik, osv., men helt grundlæggende er det en matematisk konstruktion med en bestemt definition. For at måle sandsynlighed indføres sandsynlighedsmålet $P$, som er en funktion der bestemmer sandsynligheden for udfald i \emph{tilfældige eksperimenter}. Hvis et tilfældigt eksperiment har mulige udfald $A_1, A_2,\dots$ da vil $P(A_i)$ være sandsynligheden for netop udfaldet $A_i$.
+\begin{example}
+Vi kaster en fair 6-siddet terning med mulige udfald 
+$$A_1 = \text{``slå en 1'er''}, \quad  A_2 = \text{``slå en 2'er''}, \quad \dots \quad, A_6 = \text{``slå en 6'er''}$$
+Sandsynligheden for alle udfald er lige stor og vi har eksempelvis at \\
+$P(A_6) = P(``\text{slå en 6'er}'') = 1/6 \approx 0.17\%$. 
+\end{example}
+Funktionen $P$ er defineret ud fra en række matematiske egenskaber, hvoraf den vigtigste er at den altid antager værdier mellem $0$ og $1$ (se den fulde definition i \cite[sektion 1.3]{olofsson2012}). 
+\\ \\
+For at formalisere notationen i tilfældige forsøg,  eksempelvis at slå med en terning, indfører vi begrebet \textit{tilfældige variable}. En tilfældig variabel er en funktion $X: S \to\mR$, der får sine værdier fra et tilfældigt forsøg hvor $S$ er mængden af mulige udfald. I forsøget med terningen vil $X(\text{slå en 6'er}) = 6$, $X(\text{slå en 1'er}) = 1$, osv. Vi kan så skrive $P(X = 6) = 1/6$. Et andet eksempel er møntkast hvor den tilfældige variabel $X$ kan repræsentere antallet af kroner i løbet af 3 møntkast. Hver vil $X(PPK) = 1$, $X(KKP) = 2$, $X(KKK) = 3$ osv.
+\\ \\
+Med begrebet tilfældige variable kan vi indføre \textit{sandsynlighedsmassefunktionen}, på engelsk \textit{probability mass funktion} (pmf), som egentlig blot er en nemmere notations metode. En pmf $p_X$ er defineret som $p_X(x) = P(X = x)$ for en tilfældig variable $X$. Bemærk her at $X$ er den tilfældige variabel mens $x$ er et reelt tal, eksempelvis er $P(\text{slå en 6'er}) = P(X = 6) = p_X(6)$. 
