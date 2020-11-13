@@ -1,8 +1,28 @@
-
- En uniform fordeling kan også være kontinuert hvis vi tillader alle reelle tal i et interval $[a,b]$ og vi har pdf funktionen $p_X(x) = 1/(b-a)$\footnote{I kontinuerte fordelinger skal man integrere for at udregne sandsynligheder. Vi har specielt at \\
- $P(a \leq X \leq b) = \int_a^b p_X(x)\ dx$. Eksempelvis har vi for en kontinuert uniform fordelingen mellem $0$ og $1$ at\\ $X \sim \text{unif}(0,1)$, $p_X(x) = 1$ og $P(0 \leq X \leq 0.5) = \int_0^{0.5} 1 \ dx = 0.5$.}.
-\\ \\ 
-
-
-
-Det viser sig at mange forsøg kan kategoriseres med parametriske \textit{fordelinger} med tilhørende pmf'er. Fra kursusgangen om tilfældige tal kender vi allerede et par fordelinger nemlig den \textit{uniforme fordeling}  og \textit{normalfordelingen}. Forsøget med terningslag er et eksempel på en uniform fordeling hvor $p_X(x) = 1/6$ for $x = 1,\dots, 6$, altså lige stor sandsynlighed for alle udfald. I terningslag forsøget følger $X$ altså en uniform fordeling med udfald mellem $1$ og $6$ og vi skriver $X \sim \text{unif}(1,6)$. Forsøget med terning og møntkast er eksempler på \textit{diskrete fordelinger}, da der er et tælleligt antal udfald i forsøget.
+Det viser sig at mange tilfældige variable kan kategoriseres med en \emph{parametrisk} fordeling hvor pmf/pdf'en er bestemt ud fra én eller flere parametre. Her vil vi se på nogle af de mest almindelige, hvornår disse optræder i virkeligheden og hvilke statistikker der karakteriserer dem. 
+\subsection{Bernoulli fordelingen}
+En diskret tilfældig variabel med $0$ og $1$ som mulige udfald kaldes en Bernoulli fordeling og er karakteriseret ved sandsynligheden for udfaldet $1$ ved parametren $p \in [0,1]$. Hvis $X$ følger en Bernoulli fordeling med parametren $p$ da er pmf'en:
+\begin{align*}
+p_X(x) = \begin{cases} p & x = 1 \\
+1 - p & x = 0 
+\end{cases},
+\end{align*} 
+og vi skriver $X \sim B(p)$ der betyder ``$X$ følger en Bernoulli fordeling med parameter $p$''. Vi har $E[X] = p$ og $\Var[x] = p(1-p)$. 
+\begin{example}
+Det er givet at sandsynligheden for at en person en anden er $p = 0.25$.  
+Hvis  $X(\text{``smitte overføres''}) = 1$ og $X(\text{``ingen smitte overføres''}) = 0$, da har vi $X \sim B(0.25)$ med forventet værdi $E[X] = 0.25$ og standard afvigelse $\Std[X] = \sqrt{(0.25)(1-0.25)} \approx 0.43$. Man siger så at smitte overføres forventeligt $25\%$ af gangene med en standard afvigelse på $43\%$ altså $25\% \pm 43\%$. 
+\end{example}
+\subsection{Uniform fordeling}
+Hvis en tilfældig variabel har lige stor sandsynlighed for alle udfald i et interval kaldes den uniform. I terning eksemplet introduceret eksempel \ref{ex:terning1} følger $X$ er en diskret tilfældig variabel med en uniform fordelingen for udfaldene $1$ til $6$. Uniforme fordelinger ses dog typisk for kontinuerte tilfældige variable som i eksempel \ref{ex:unif1}. Hvis $X$ følger en uniform fordelingen inden for intervallet $[a,b]$ da gælder at:
+\begin{align*}
+p_X(x) = \frac{1}{b-a}, \quad x \in [a,b],
+\end{align*}
+og vi skriver $X \sim \text{unif}[a,b]$. Vi har $E[X] = (a+b)/2$ og $\Var[X] = (b-a)^2/12$. 
+\subsection{Poisson fordelingen}
+Poisson fordelingen er en diskret fordeling og er vigtig inden for simulering da den ofte ses for tilfældige variable der beskriver antallet af uforudsigelige hændelser inden for en tidsperiode. Typiske eksempler er antallet af jordskælv, bilulykker, antallet af stavefejl i en P1 rapport og besøg på en hjemmeside. Den originale brug af Poisson fordelingen var af Siméon Poisson, der opfandt fordelingen til at beskrive antallet af Preussiske der blev sparket ihjel af deres hest i det 19. århundrede. For at noget er Poisson fordelt er det vigtigt at der er et tilstrækkeligt tilfældigt element i udfaldet. Et eksempel som ankomst tidspunkter for busser vil derfor ikke være Poisson fordelt da tidsplanen fjerner det tilfældige element. Poisson fordelingen er karakteriseret ud fra parameteren $\lamda$ og har mulige udfald i de positive heltal. Hvis $X$ følger en Poisson fordeling med parameter $\lambda$ da gælder at:
+\begin{align*}
+p_X(x) = e^{-\lambda}\frac{\lambda^x}{x!}, \quad x = 0,1,2,\dots \ ,
+\end{align*}
+og vi skriver $X \sim \text{Poi}(\lambda)$. Poisson fordelingen har den specielle egenskab at variansen er lig den forventede værdi altså $E[X] = \lambda$ og $\Var[X] = \lambda$. 
+\cite[117-120]{oflofsson2012}.
+\subsection{Eksponentielfordeling}
+\subsection{Normalfordeling}

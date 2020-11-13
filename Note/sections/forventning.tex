@@ -1,19 +1,19 @@
-I statistik forsøger vi at karakterisere fordelinger ud fra \emph{statistikker}, der kan fortælle os om vigtige egenskaber for disse. Den \emph{forventede værdi} er en sådan statistik, og som navnet hentyder fortæller den om det forventede udfald af et tilfældigt forsøg. For diskret tilfældig variabel  $X$ med mulige udfald $\{x_1,x_2,\dots\}$ og pmg $p_X$ er den forventede værdi defineret:
+I statistik forsøger vi at karakterisere fordelinger ud fra \emph{statistikker}, der kan fortælle os om vigtige egenskaber for disse. Den \emph{forventede værdi} er en sådan statistik, og som navnet hentyder fortæller den om det forventede udfald af et tilfældigt forsøg. For diskret tilfældig variabel  $X$ med mulige udfald $\{x_1,x_2,\dots\}$ og pmf $p_X$ er den forventede værdi defineret:
 \begin{align*}
-E[X] = \sum_{k=1}^{\infty} xp_X(x),
+E[X] = \sum_{k=1}^{\infty} x_k\cdot p_X(x_k),
 \end{align*}
 altså en vægtet sum over alle mulige udfald.
 \begin{example} \label{ex:game}
-En skummel person på gaden tilbyder dig at gamble i et terningspil hvor du mister $1$ krone hvis du slås mindre end $4$, du vinder ingenting hvis du slår $4$ og du vinder $1$ krone hvis du slår $5$ eller mere. Burde du spille med? \\
-For at vurdere dette starter vi med at definere den tilfældige variabel $X$, der er $-1$ hvis du slår mindre end $4$, $0$ hvis du slår $4$ og $1$ hvis du slår $5$ eller mere. Sandsynligheden for de tre udfald er henholdsvis $3/6$, $1/6$ og $2/6$ og derfor er pmf funktionen det samme som givet i eksempel \ref{ex:terning4}. Vi kan nu udregne det forventede udfald af spillet:
+En skummel person på gaden tilbyder dig at gamble i et terningspil hvor du mister $1$ krone hvis du slår mindre end $4$, du vinder ingenting hvis du slår $4$ og du vinder $1$ krone hvis du slår $5$ eller mere. Burde du spille med? \\
+For at vurdere dette starter vi med at definere den tilfældige variabel $X$, der er $-1$ hvis du slår mindre end $4$, $0$ hvis du slår $4$ og $1$ hvis du slår $5$ eller mere. Sandsynligheden for de tre udfald er henholdsvis $3/6$, $1/6$ og $2/6$ og derfor er pmf funktionen den samme som i eksempel \ref{ex:terning4}. Vi kan nu udregne det forventede udfald af spillet:
 \begin{align*}
 E[X] = -1\cdot p_X(-1) + 0\cdot p_X(0) + 1\cdot p_X(1) = -1\cdot \frac{3}{6} + 0\cdot\frac{1}{6} + 1\cdot \frac{2}{6} = -\frac{1}{6}
 \end{align*}
-Du forventes altså at miste $1/6$ krone hver gang du spiller, og det anbefales herfra ikke at spille med. Bemærk som her, at det forventede udfald ikke nødvendigvis er blandt de mulige udfald. 
+Du forventes altså at miste $1/6$ krone hver gang du spiller og du anbefales herfra ikke at spille med. Bemærk som her, at det forventede udfald ikke nødvendigvis er blandt de mulige udfald. 
 \end{example}
 For kontinuerte tilfældige variabel er den forventede værdi defineret ud fra et integrale, men fortolkningen er den samme. Hvis $X$ er en kontinuert tilfældig variabel med mulige udfald i alle reelle tal og pdf $p_X$, da er den forventede værdi:
 \begin{align*}
-E[X] = \int_{-\infty}^{\infty} p_X(x) \ dx
+E[X] = \int_{-\infty}^{\infty} x \cdot p_X(x) \ dx
 \end{align*}
 \begin{example}
 Den forventede værdi af $X$ fra eksempel \ref{ex:unif1} med pdf $p_X(x) = 1$ for udfald mellem $0$ og $1$ er:
