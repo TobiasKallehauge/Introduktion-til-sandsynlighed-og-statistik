@@ -42,14 +42,49 @@ Givet en pmf kan alle diskrete fordelinger, herunder Bernoulli og Poisson, simul
 Den generelle algoritme til simulering af tilfældige tal fra diskete fordelinger med pmf $p_X$ og mulige udfald $x_1, x_2,\dots$ er givet i algoritme X
 \begin{algorithm}[H]
 \begin{algorithmic}
+\STATE $F_0 \gets 0$ og $F_k \gets \sum_{j=1}^k p_X(x_k)$ for $k = 1,2,\dots$ \COMMENT{Kumulativ sum af pmf}
 \STATE Simuler $U \sim \text{unif}(0,1)$
-\IF{$U > p$}
-\STATE $X \gets 1$
+\STATE Find $i$ således $F_{i-1} < U \leq F_i$
+\STATE $X \gets x_i$. 
+\end{algorithmic}
+\caption{Diskret tilfældig variabel $X$ med pmf $p_X$ og mulige udfald $x_1,x_2,\dots$} \label{alg:bernoulli}
+\end{algorithm}
+I fordelinger som Poisson fordelingen hvor der ikke er nogen øvre grænse er det nødvendigt at vælge en $k_{\max}$ i udregning af $F_k$. Det vides at $F_k \to 1$ for store $k$ så et fint kriterie kan være at vælge $k_{\max}$ som det mindste $k$ såldes $F_k > 1 - \epsilon$ for en et lille tal $\epsilon > 0$ eksempelvis $\epsilon = 10^{-5}$. Se \cite[283-285]{olofsson2012} for mere om simulering af diskrete tilfældige variable. 
+\subsection{Eksponentiel fordelingen}
+Eksponentielfordelingen kan nemt simuleres ved brug af den \emph{inverse transformationsmetode}. Teorien udelades her men algoritmen er givet i algoritme REF.
+\begin{algorithm}[H]
+\begin{algorithmic}
+\STATE Simuler $U \sim \text{unif}(0,1)$
+\STATE $X \gets -\dfrac{1}{\lambda}\ln(1-U)$ \COMMENT{$\ln$ er den naturlige algoritme}
+\end{algorithmic}
+\caption{Eksponentielfordelt $X$ med parameter $\lambda$} \label{alg:eksponential}
+\end{algorithm}
+Se \cite[285-287]{olofsson2012} for mere om den inverse transformationsmetode. 
+\subsection{Normalfordelingen}
+Normalfordelingen er en smule mere avanceret at simulere og bruger den såkaldte forkastelsesmetode opsummeret i algoritme \ref{alg:normal1} til simulering af en standard normalfordeling med forventet værdi $0$ og varians $1$
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\STATE Simuler $U \sim \text{unif}(0,1)$ og $Y \sim \exp(1)$  \COMMENT{Uafhængigt}
+\IF{$U \leq e^{-(Y-1)^2/2}$ }
+\STATE $|X| = Y$ \COMMENT{Absolut værdi uden fortegn}
 \ELSE
-\STATE $X \gets 0$
+\STATE Gå til skridt 1
+\ENDIF
+\STATE Simuler $V \sim \text{unif}(0,1)$ \COMMENT{Find fortegn}
+\IF{$V \leq \frac{1}{2}$}
+\STATE $X \gets |X|$
+\ELSE
+\STATE $X \gets -|X|$
 \ENDIF
 \end{algorithmic}
-\caption{Bernoulli fordeling med parameter $p$} \label{alg:bernoulli}
+\caption{Normalfordelt $X$ med forventet værdi $0$ og varians $1$ såldes $X \sim \mathcal{N}(0,1)$} \label{alg:normal1}
 \end{algorithm}
-\subsection{Eksponentiel fordelingen}
-\subsection{Normalfordelingen}
+Algoritme REF beskriver simulering af en normalfordeling med vilkårlig forventet værdi og varians.
+\begin{algorithm}[H]
+\begin{algorithmic}
+\STATE Simuler $Y \sim \mathcal{N}(0,1)$ 
+\STATE $X \gets Y\sigma + \mu$
+\end{algorithmic}
+\caption{Normalfordelt $X$ med forventet værdi $\mu$ og varians $\sigma^2$} \label{alg:normal2}
+\end{algorithm}
+Se \cite[288-290]{olofsson2012} for mere om forkastelsesmetoden og simulering af normalfordelingen. 
