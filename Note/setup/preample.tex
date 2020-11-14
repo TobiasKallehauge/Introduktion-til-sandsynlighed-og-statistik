@@ -75,8 +75,31 @@
 \DeclareMathOperator*{\Std}{Std}
 
 \lstdefinestyle{mystyle}{
-    backgroundcolor=\color{lightgray},   
-    basicstyle={\ttfamily\footnotesize}
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+  backgroundcolor = \color{white},
+}
+\lstdefinestyle{console}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  keywordstyle=\bfseries\color{white},
+  commentstyle=\itshape\color{white},
+  identifierstyle=\color{white},
+  stringstyle=\color{white},
+  numberstyle=\color{white},
+  backgroundcolor=\color{black},
+  basicstyle = \color{white}\footnotesize\ttfamily,
 }
 \lstset{style=mystyle,breaklines=true}
 
