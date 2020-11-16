@@ -14,7 +14,7 @@ E[X(24)] = 24\lambda = 400 \Rightarrow \lambda = 400/24 \approx 16.7,
 \end{align*}
 således $X(t) \sim \text{Poi}(16.7\cdot t)$ og $T_i \sim \exp(16.7)$. Tiden $T_i$ mellem to flyvere er da eksponentielfordelt med parameter $16.7$. Den forventede tid er $E[T_i] = 1/16.7 = 0.06$ timer $= 3.6$ minutter med en standardafvigelse også på $3.6$ minutter. 
 \end{example}
-Et andet nyttigt resultat er brugbart til simulering af Poisson processer. Vi har givet en Poisson process med rate $\lambda$. Givet at der er $N$ antal punkter i tidsperioden $[0,t]$ vil fordelingen for tidspunkterne være uafhængigt uniformt fordelte tilfældige variable i intervallet $[0,t]$. Kender vi $N$ kan man altså blot simulere $N$ punkter uniformt fordelt i intervallet $[0,t]$ for at simulere en Poisson process. Algoritme \ref{alg:poisprocss} opsummerer simulering af Poisson processeer basret på disse resultater. Se \cite[240-247]{olofsson2012} for mere om Poisson processer. 
+Et andet nyttigt resultat er brugbart til simulering af Poisson processer. Vi har givet en Poisson process med rate $\lambda$. Givet at der er $N$ antal punkter i tidsperioden $[0,t]$ vil fordelingen for tidspunkterne være uafhængigt uniformt fordelte tilfældige variable i intervallet $[0,t]$. Kender vi $N$ kan man altså blot simulere $N$ punkter uniformt fordelt i intervallet $[0,t]$ for at simulere en Poisson process. Algoritme \ref{alg:poisprocss} opsummerer simulering af Poisson processeer baseret på disse resultater. Se \cite[240-247]{olofsson2012} for mere om Poisson processer. 
 \begin{algorithm}
 \begin{algorithmic}
 \STATE Simuler $N \sim \text{Poi}(t\lambda)$ 
