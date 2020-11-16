@@ -1,4 +1,4 @@
-Der findes specielle algoritmer til at generere tilfældige tal på en computer. Dette kan bruges i eksempelvis en diskret tids simulering hvor tilfældige tal \emph{trækkes} fra fordelinger baseret på statistiske modeller. Da de tilfældige tal genereres ud fra en deterministisk algoritme kalder vi dem for \emph{pseudo} tilfældige, men de kan dog opføre sig statistisk ligesom ægte tilfældige tal og er derfor brugbare. Lad os se på hvordan man kan generere et tilfældigt heltal i C med \texttt{rand} funktionen fra \texttt{stdlib}: 
+Der findes specielle algoritmer til at generere tilfældige tal på en computer. Dette kan bruges i eksempelvis en diskrettidssimulering hvor tilfældige tal \emph{trækkes} fra fordelinger baseret på statistiske modeller. Da de tilfældige tal genereres ud fra en deterministisk algoritme kalder vi dem for \emph{pseudo} tilfældige, men de kan dog opføre sig statistisk ligesom ægte tilfældige tal og er derfor brugbare. Lad os se på hvordan man kan generere et tilfældigt heltal i C med \texttt{rand} funktionen fra \texttt{stdlib}: 
 \begin{lstlisting} 
 #include <stdio.h>
 #include <stdlib.h>
@@ -28,7 +28,7 @@ Gentages eksemplet ser vi dog noget specielt:
 $ rand_tutorial1.exe
 Random numbers between 0 and 32767: 41, 18467, 6334, 26500, 19169,
 \end{lstlisting}
-Vi får de samme tilfældige tal begge gange og det gør vi da tallene er genereret ud fra en deterministisk algoritme. Mere præcist baseres første kald af \texttt{rand} på et såkaldt \emph{seed}, et ikke negativt heltal der ``sætter gang'' i genereringen af tilfældige tal. For \texttt{stdlib} er seed som udgangspunktet $0$, og ændres dette ikke vil de samme tal altid genereres. Man kan manuelt sætte seed med \texttt{srand} funktionen fra \texttt{stdlib}. Ønsker man automatisk valg af seed kan man bruge \texttt{time} funktionen fra \texttt{time} biblioteket: 
+Vi får de samme tilfældige tal begge gange og det gør vi da tallene er genereret ud fra en deterministisk algoritme. Mere præcist baseres første kald af \texttt{rand} på et såkaldt \emph{seed}, et ikke negativt heltal der ``sætter gang'' i genereringen af tilfældige tal. For \texttt{stdlib} er seed som udgangspunktet $0$, og ændres dette ikke vil de samme tal altid genereres. Man kan manuelt sætte seed med \texttt{srand} funktionen fra \texttt{stdlib}. Ønsker man automatisk valg af seed kan man eksempelvis bruge \texttt{time} funktionen fra \texttt{time} biblioteket: 
 \lstset{style = mystyle}
 \begin{lstlisting} 
 #include <stdio.h>
@@ -39,7 +39,7 @@ void main() {
     
     int N = 5; 
     unsigned int nr;
-    srand(time(0)); 
+    srand(time(0)); // Set seed to system time
      
     printf("Random numbers between 0 and %u: ", RAND_MAX); 
     

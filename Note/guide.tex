@@ -4,7 +4,7 @@
 
 
 \title{Introduktion til Sandsynlighed og Statistik \\
-til modellering og simulering  \\
+til Modellering og Simulering  \\
 \large Datalogi og Software 1. semester}
 
 
@@ -14,8 +14,10 @@ til modellering og simulering  \\
 
 \begin{document}
 \maketitle
+\includegraphics[width = \textwidth]{COLOURBOX18420758.jpg}
+\small Kilde: \href{www.colourbox.com}{www.colourbox.com}
 \newpage
-Denne note omhandler sandsynlighed, statistik og hvordan disse kan bruges i praksis specielt i sammenhæng med simuleringer, hvor det ofte er nødvendigt at udtrække tal fra bestemte sandsynlighedsfordelinger. Der vil primært fokuseres på den matematiske forståelse, men til sidst i noten gives et par eksempler på hvordan teorien kan bruges i et C-program. Formålet med noten er at give den \emph{nødvendige} teori til software- og datalogiprojekter på  1 semester, og teorien gennemgås derfor relativt overfladisk med kun få eksempler. Den primære kilde bag noten er \cite{olofsson2012}, som er gratis tilgængelig på \href{aub.aau.dk}{aub.aau.dk}. Heri findes også beviser for resultaterne, der er udeladt i noten. Har I brug for at henvise til teorien præsenteret her anbefales i derfor også at henvise til \cite{olofsson2012} fremfor noten her. Forslag til ændringer, stavefejl mm. kan sendes til \href{mailto:tkal@es.aau.dk}{tkal@es.aau.dk}. 
+Denne note omhandler sandsynlighed, statistik og hvordan disse kan bruges i praksis specielt i sammenhæng med simuleringer, hvor det ofte er nødvendigt at udtrække tal fra bestemte sandsynlighedsfordelinger. Fokus vil primært være på den matematiske forståelse, men til sidst i noten gives et par eksempler på hvordan teorien kan bruges i et C-program. Formålet med noten er at give den \emph{nødvendige} teori til datalogi  og softwareprojekter på  1 semester, og teorien gennemgås derfor relativt overfladisk med kun få eksempler. Den primære kilde bag noten er \cite{olofsson2012}, som er gratis tilgængelig på \href{aub.aau.dk}{aub.aau.dk}. Heri findes også beviser for resultaterne, der er udeladt i noten. Har I brug for at henvise til teorien præsenteret her anbefales I derfor også at henvise til \cite{olofsson2012} fremfor noten her. Forslag til ændringer, stavefejl mm. kan sendes til \href{mailto:tkal@es.aau.dk}{tkal@es.aau.dk}. 
 \section{Introduktion til sandsynlighed}
 \input{sections/sandsynlighed.tex}
 
@@ -25,7 +27,7 @@ Denne note omhandler sandsynlighed, statistik og hvordan disse kan bruges i prak
 \section{Forventet værdi, varians og standardafvigelse}
 \input{sections/forventning.tex}
 
-\section{Specielle fordelinger og modellering} \tobi{Indsæt kilder!}
+\section{Specielle fordelinger og modellering}
 \input{sections/specielle_fordelinger.tex}
 
 \section{Punktprocesser} \label{sec:pointprocess}

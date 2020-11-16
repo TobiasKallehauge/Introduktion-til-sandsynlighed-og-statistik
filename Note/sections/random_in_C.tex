@@ -1,4 +1,4 @@
-C er ikke ligefrem statistikerens første valg når der skal arbejdes med simuleringer og statistiske modeller, og det er derfor begrænset hvor mange biblioteker der findes til at trække tal fra forskellige fordelinger især de mere avancerede som Poisson og eksponentielfordelingen\footnote{I min søgen har jeg ikke kunne finde andre biblioteker end stdlib, så skriv endelig til mig hvis du kan finde et godt bibliotek.}. Heldigvis kan vi basere genering af tilfældige ud fra \texttt{rand} funktionen i kombination med passende algoritmer for at simulere fra den ønskede fordeling. Der gives her algoritmerne til at trække fra fordelingerne beskrevet i denne note, og det er så op til jer at implementere i C. 
+C er ikke ligefrem statistikerens første valg når der skal arbejdes med simuleringer og statistiske modeller. Det er derfor begrænset hvor mange biblioteker der findes til at simulere fordelinger især de mere avancerede som Poisson og eksponentielfordelingen\footnote{I min søgen har jeg ikke kunne finde andre biblioteker end stdlib, så skriv endelig til mig hvis du kan finde et godt bibliotek.}. Heldigvis kan vi basere genering af tilfældige ud fra \texttt{rand} funktionen i kombination med passende algoritmer for at simulere fra den ønskede fordeling. Der gives her algoritmerne til at trække fra fordelingerne beskrevet i denne note, og det er så op til jer at implementere i C. 
 \subsection{Tilfældigt tal mellem $0$ og $N$}
 Vi har allerede set hvordan man genererer tilfældige tal mellem \texttt{0} og \texttt{RAND\_MAX} som typisk er \\ 
 $32764 = 2^{15} - 1$. Algoritme \ref{alg:zeroN} beskriver hvordan et tilfældigt tal mellem $0$ og $N \leq$ \texttt{RAND\_MAX} kan genereres.
@@ -18,7 +18,7 @@ Simulering af kontinuert uniformt fordelte tal mellem $0$ og $1$ danner base for
 \end{algorithmic}
 \caption{Uniform tilfældige variabel $X$ mellem $0$ og $1$} \label{alg:unif01}
 \end{algorithm}
-Teknisk set er $X$ i algoritme \ref{alg:unif01} diskret uniformt fordelt i mængden $\left\{0, \frac{1}{N},\dots,\frac{N-1}{N},N \right\}$, men for tilpas høj $N$ er dette en acceptabel tilnærmelse. Algoritme \ref{alg:unif02} beskriver simulering af en uniformt tilfældig variabel i et vilkårligt interval $[a,b]$. 
+Teknisk set er $X$ i algoritme \ref{alg:unif01} en diskret uniformt fordelt i mængden $\left\{0, \frac{1}{N},\dots,\frac{N-1}{N},N \right\}$, men for tilpas høj $N$ er dette en acceptabel tilnærmelse. Algoritme \ref{alg:unif02} beskriver simulering af en uniformt tilfældig variabel i et vilkårligt interval $[a,b]$. 
 \begin{algorithm}[H]
 \begin{algorithmic}
 \STATE Simuler $U \sim \text{unif}(0,1)$
@@ -27,7 +27,7 @@ Teknisk set er $X$ i algoritme \ref{alg:unif01} diskret uniformt fordelt i mæng
 \caption{Uniform tilfældige variabel $X$ mellem $a$ og $b$} \label{alg:unif02}
 \end{algorithm}
 \subsection{Diskrete fordelinger}
-Givet en pmf kan alle diskrete fordelinger, herunder Bernoulli og Poisson, simuleres med samme algoritme. Bernoulli fordelingen er dog speciel simpel at simulere og fortjener sin egen algoritme - algoritme \ref{alg:bernoulli}. 
+Givet en pmf kan alle diskrete fordelinger, herunder Bernoulli og Poisson, simuleres med samme algoritme. Bernoulli fordelingen er dog specielt simpel og fortjener sin egen algoritme. 
 \begin{algorithm}[H]
 \begin{algorithmic}
 \STATE Simuler $U \sim \text{unif}(0,1)$
@@ -50,8 +50,8 @@ Den generelle algoritme til simulering af tilfældige tal fra diskete fordelinge
 \caption{Diskret tilfældig variabel $X$ med pmf $p_X$ og mulige udfald $x_1,x_2,\dots$} \label{alg:bernoulli}
 \end{algorithm}
 I fordelinger som Poisson fordelingen hvor der ikke er nogen øvre grænse er det nødvendigt at vælge en $k_{\max}$ i udregning af $F_k$. Det vides at $F_k \to 1$ for store $k$ så et fint kriterie kan være at vælge $k_{\max}$ som det mindste $k$ såldes $F_k > 1 - \epsilon$ for en et lille tal $\epsilon > 0$ eksempelvis $\epsilon = 10^{-5}$. Se \cite[283-285]{olofsson2012} for mere om simulering af diskrete tilfældige variable. 
-\subsection{Eksponentiel fordelingen}
-Eksponentielfordelingen kan nemt simuleres ved brug af den \emph{inverse transformationsmetode}. Teorien udelades her men algoritmen er givet i algoritme REF.
+\subsection{Eksponentielfordelingen}
+Eksponentielfordelingen kan nemt simuleres ved brug af den \emph{inverse transformationsmetode}. Teorien udelades her men algoritmen er givet i algoritme \ref{alg:eksponential}. 
 \begin{algorithm}[H]
 \begin{algorithmic}
 \STATE Simuler $U \sim \text{unif}(0,1)$
@@ -61,7 +61,7 @@ Eksponentielfordelingen kan nemt simuleres ved brug af den \emph{inverse transfo
 \end{algorithm}
 Se \cite[285-287]{olofsson2012} for mere om den inverse transformationsmetode. 
 \subsection{Normalfordelingen}
-Normalfordelingen er en smule mere avanceret at simulere og bruger den såkaldte forkastelsesmetode opsummeret i algoritme \ref{alg:normal1} til simulering af en standard normalfordeling med forventet værdi $0$ og varians $1$
+Normalfordelingen er en smule mere avanceret at simulere og bruger den såkaldte forkastelsesmetode. Algoritme \ref{alg:normal1} beskriver hvordan denne kan bruges til at simulere en normalfordeling med forventet værdi $0$ og varians $1$. 
 \begin{algorithm}[H]
 \begin{algorithmic}[1]
 \STATE Simuler $U \sim \text{unif}(0,1)$ og $Y \sim \exp(1)$  \COMMENT{Uafhængigt}
@@ -79,7 +79,7 @@ Normalfordelingen er en smule mere avanceret at simulere og bruger den såkaldte
 \end{algorithmic}
 \caption{Normalfordelt $X$ med forventet værdi $0$ og varians $1$ såldes $X \sim \mathcal{N}(0,1)$} \label{alg:normal1}
 \end{algorithm}
-Algoritme REF beskriver simulering af en normalfordeling med vilkårlig forventet værdi og varians.
+Algoritme \ref{alg:normal2} beskriver simulering af en normalfordeling med vilkårlig forventet værdi og varians.
 \begin{algorithm}[H]
 \begin{algorithmic}
 \STATE Simuler $Y \sim \mathcal{N}(0,1)$ 
